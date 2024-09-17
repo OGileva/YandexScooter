@@ -27,8 +27,8 @@ public class ScooterForPage {
     public By addressField = By.xpath("//input[@placeholder='* Адрес: куда привезти заказ']");
     //текст ошибки поля Адрес
     public By errorTextAddressField = By.xpath("//div[text()='Введите корректный адрес']");
-    //поле Станция метро
-   // public By metroStationField = By.xpath("//input[@placeholder='* Станция метро']");
+    //поле Станция Метро
+    private final By metroStationFiled = By.xpath("//input[@placeholder='* Станция метро']");
     //текст ошибки поля Станция Метро
     public By errorTextMetroStation = By.xpath("//div[text()='Выберите станцию']");
     //поле Телефон
@@ -55,12 +55,12 @@ public class ScooterForPage {
         driver.findElement(addressField).clear();
         driver.findElement(addressField).sendKeys(address);
     }
-    //ввести значение в поле Станция Метро
-   // public void fillMetroStation(String metroStation) {
-     //   driver.findElement(metroStationField).clear();
-       // WebElement inputMetroStation = driver.findElement(metroStationField);
-        //inputMetroStation.sendKeys(metroStation);
-    //}
+    //заполнение поля Метро
+    public void setMetroStation(String metroStationName) {
+        driver.findElement(metroStationFiled).click();
+        driver.findElement(By.xpath(".//*[text() = '" + metroStationName + "']")).click();
+    }
+
     //заполнить поле Телефон
     public void fillPhoneNumber(String phoneNumber) {
         driver.findElement(phoneNumberField).clear();

@@ -32,7 +32,7 @@ public class FieldMetroStationTest {
     @Parameterized.Parameters
     public static Object[][]data() {
         return new Object[][] {
-                {"Черкизовская", false},
+                {"Арбатская", false},
                 {"Покрышкина", true},
                 {" ", true}
         };
@@ -50,16 +50,7 @@ public class FieldMetroStationTest {
     }
     @Test
     public void metroStationTest() {
-        WebElement metroStationInput = driver.findElement(By.xpath("//input[@placeholder='* Станция метро']"));
-        metroStationInput.sendKeys(metroStation);
-        List<WebElement> filteredMetroStation = driver.findElements(By.className("select-search__input"));
-        if(filteredMetroStation.size()>0) {
-            filteredMetroStation.get(0).click();
-        } else {
-            System.out.println("Станция метро не найдена");
-        }
-        String selectedMetroStation = metroStationInput.getAttribute("value");
-        Assert.assertFalse(selectedMetroStation.isEmpty());
+        scooterForPage.setMetroStation(metroStation);
         scooterForPage.clickNextButton();
         boolean actualVisibility = scooterForPage.isErrorTextMetroStationVisible();
         assertEquals("Ошибка отображения сообщения для станции метро: " + metroStation, isErrorTextMetroStationVisible, actualVisibility);

@@ -12,7 +12,7 @@ import pages.ScooterForPage;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class FieldNameTest {
+public class NameFieldValidationTest {
     private WebDriver driver;
     private String name;
     private boolean isErrorTextNameVisible;
@@ -20,7 +20,7 @@ public class FieldNameTest {
     private ScooterForPage scooterForPage;
 
 
-    public FieldNameTest(String name, boolean isErrorTextNameVisible) {
+    public NameFieldValidationTest(String name, boolean isErrorTextNameVisible) {
         this.name = name;
         this.isErrorTextNameVisible = isErrorTextNameVisible;
     }

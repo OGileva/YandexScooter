@@ -1,15 +1,9 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class ScooterForPage {
     private WebDriver driver;
-    private final String ERROR_MESSAGE = "Введите корректное имя";
-
     public ScooterForPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -27,8 +21,8 @@ public class ScooterForPage {
     public By addressField = By.xpath("//input[@placeholder='* Адрес: куда привезти заказ']");
     //текст ошибки поля Адрес
     public By errorTextAddressField = By.xpath("//div[text()='Введите корректный адрес']");
-    //поле Станция метро
-   // public By metroStationField = By.xpath("//input[@placeholder='* Станция метро']");
+    //поле Станция Метро
+    private final By metroStationFiled = By.xpath("//input[@placeholder='* Станция метро']");
     //текст ошибки поля Станция Метро
     public By errorTextMetroStation = By.xpath("//div[text()='Выберите станцию']");
     //поле Телефон
@@ -55,12 +49,12 @@ public class ScooterForPage {
         driver.findElement(addressField).clear();
         driver.findElement(addressField).sendKeys(address);
     }
-    //ввести значение в поле Станция Метро
-   // public void fillMetroStation(String metroStation) {
-     //   driver.findElement(metroStationField).clear();
-       // WebElement inputMetroStation = driver.findElement(metroStationField);
-        //inputMetroStation.sendKeys(metroStation);
-    //}
+    //заполнение поля Метро
+    public void setMetroStation(String metroStationName) {
+        driver.findElement(metroStationFiled).click();
+        driver.findElement(By.xpath(".//*[text() = '" + metroStationName + "']")).click();
+    }
+
     //заполнить поле Телефон
     public void fillPhoneNumber(String phoneNumber) {
         driver.findElement(phoneNumberField).clear();
@@ -78,6 +72,14 @@ public class ScooterForPage {
         } catch (NoSuchElementException e) {
             return false;
         }
+    }
+    //заполнить все поля валидными данными
+    public void setAllFieldsCorrect() {
+        fillName("Анна");
+        fillSurname("Иванова");
+        fillAddress("Ленина 5");
+        setMetroStation("Черкизовская");
+        fillPhoneNumber("8999776655");
     }
     //проверить появился ли текст ошибки поля Фамилия
     public boolean isErrorTextSurnameVisible() {

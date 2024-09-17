@@ -12,14 +12,14 @@ import pages.ScooterForPage;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class FieldAddressTest {
+public class AddressFieldValidationTest {
     private WebDriver driver;
     private String address;
     private boolean isErrorTextAddressVisible;
     private MainPage mainPage;
     private ScooterForPage scooterForPage;
 
-    public FieldAddressTest(String address, boolean isErrorTextAddressVisible) {
+    public AddressFieldValidationTest(String address, boolean isErrorTextAddressVisible) {
         this.address = address;
         this.isErrorTextAddressVisible = isErrorTextAddressVisible;
     }

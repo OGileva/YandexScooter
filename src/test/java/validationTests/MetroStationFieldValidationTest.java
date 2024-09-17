@@ -1,31 +1,26 @@
 package validationTests;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.MainPage;
 import pages.ScooterForPage;
 
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class FieldMetroStationTest {
+public class MetroStationFieldValidationTest {
     private WebDriver driver;
     private MainPage mainPage;
     private ScooterForPage scooterForPage;
     private String metroStation;
     private boolean isErrorTextMetroStationVisible;
 
-    public FieldMetroStationTest(String metroStation, boolean isErrorTextMetroStationVisible) {
+    public MetroStationFieldValidationTest(String metroStation, boolean isErrorTextMetroStationVisible) {
         this.metroStation = metroStation;
         this.isErrorTextMetroStationVisible = isErrorTextMetroStationVisible;
     }

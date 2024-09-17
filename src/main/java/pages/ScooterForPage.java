@@ -1,15 +1,9 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class ScooterForPage {
     private WebDriver driver;
-    private final String ERROR_MESSAGE = "Введите корректное имя";
-
     public ScooterForPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -78,6 +72,14 @@ public class ScooterForPage {
         } catch (NoSuchElementException e) {
             return false;
         }
+    }
+    //заполнить все поля валидными данными
+    public void setAllFieldsCorrect() {
+        fillName("Анна");
+        fillSurname("Иванова");
+        fillAddress("Ленина 5");
+        setMetroStation("Черкизовская");
+        fillPhoneNumber("8999776655");
     }
     //проверить появился ли текст ошибки поля Фамилия
     public boolean isErrorTextSurnameVisible() {

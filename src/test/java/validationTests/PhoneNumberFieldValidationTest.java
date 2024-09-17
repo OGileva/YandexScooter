@@ -12,14 +12,14 @@ import pages.ScooterForPage;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class FieldPhoneNumberTest {
+public class PhoneNumberFieldValidationTest {
     private WebDriver driver;
     private String phoneNumber;
     private boolean isErrorTextPhoneNumberVisible;
     private MainPage mainPage;
     private ScooterForPage scooterForPage;
 
-    public FieldPhoneNumberTest(String phoneNumber, boolean isErrorTextPhoneNumberVisible) {
+    public PhoneNumberFieldValidationTest(String phoneNumber, boolean isErrorTextPhoneNumberVisible) {
         this.phoneNumber = phoneNumber;
         this.isErrorTextPhoneNumberVisible = isErrorTextPhoneNumberVisible;
     }
